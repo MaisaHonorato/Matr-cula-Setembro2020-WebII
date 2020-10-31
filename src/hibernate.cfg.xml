@@ -1,0 +1,31 @@
+<!DOCTYPE hibernate-configuration SYSTEM "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+		<!-- Settings for a local PostgreSQL database. -->
+        <property name="connection.driver_class">org.MySQL.Driver</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+       <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/matricula?zeroDateTimeBehavior=convertToNull</property>
+        <property name="hibernate.connection.username">root</property>
+
+        <!-- Print SQL to stdout, format it nicely  -->
+        <property name="show_sql">false</property> 
+        <property name="format_sql">true</property>
+
+        <!-- Drop and then re-create schema on SessionFactory build, for testing  -->
+        <property name="hbm2ddl.auto">update</property>
+
+	<!-- Use the Hibernate built-in pool for tests. -->
+        <property name="connection.pool_size">3</property>
+		
+	<!--*********** Mapeamento das classes/tabelas ...  ***********-->        
+	<mapping class="projeto.matricula.modelo.Pessoa"/> 
+	<mapping class="projeto.matricula.modelo.Endereco"/>
+	<mapping class="projeto.matricula.modelo.Aluno"/>
+        
+    </session-factory>
+
+</hibernate-configuration>
